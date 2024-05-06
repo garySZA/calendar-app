@@ -1,5 +1,5 @@
 import { addHours } from 'date-fns';
-import { calendarSliceType, uiSliceType } from '../types';
+import { authSliceType, calendarSliceType, uiSliceType } from '../types';
 
 export const uiInitialState: uiSliceType = {
     isDateModalOpen: false
@@ -20,4 +20,10 @@ export const calendarInitialState: calendarSliceType = {
         }
     ],
     activeEvent: null
+}
+
+export const authInitialState: authSliceType = {
+    status: 'not-authenticated',
+    user: null,
+    errorMessage: null
 }
