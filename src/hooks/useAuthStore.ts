@@ -4,6 +4,7 @@ import { RootState } from '../store';
 import {calendarApi} from '../api';
 import { clearErrorMessage, onChecking, onLogin, onLogout } from '../store/auth';
 import { IErrorField } from '../types/interfaces';
+import { onLogoutCalendar } from '../store/calendar';
 
 export const useAuthStore = () => {
     const { status, user, errorMessage } = useAppSelector(( state: RootState ) => state.auth )
@@ -14,9 +15,6 @@ export const useAuthStore = () => {
 
         try {
             const { data } = await calendarApi.post('/auth/login', { email, password });
-
-
-            console.log(data)
 
             localStorage.setItem('token', data.token);
             localStorage.setItem('token-init-date', new Date().getTime().toString());
@@ -67,6 +65,7 @@ export const useAuthStore = () => {
             dispatch( onLogin({ name: data.name, uid: data.uid }) );
         } catch (error) {
             localStorage.clear();
+            dispatch(  onLogoutCalendar() );
             dispatch( onLogout(null) );
         }
     }

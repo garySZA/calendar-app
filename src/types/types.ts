@@ -4,7 +4,7 @@ export type TUser = {
 }
 
 export type EventType = {
-    _id?: number;
+    id?: number;
     title: string;
     notes: string;
     start: Date;
@@ -21,6 +21,7 @@ export type uiSliceType = {
 }
 
 export type calendarSliceType = {
+    isLoadingEvents: boolean;
     events: EventType[];
     activeEvent: EventType | null;
 }
