@@ -1,4 +1,4 @@
-import axios, { AxiosHeaders, AxiosInstance } from 'axios';
+import axios, { AxiosInstance } from 'axios';
 import { config } from '../config';
 
 const calendarApi: AxiosInstance = axios.create({

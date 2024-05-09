@@ -24,7 +24,7 @@ export const calendarInitialState: calendarSliceType = {
 }
 
 export const authInitialState: authSliceType = {
-    status: 'not-authenticated',
+    status: 'checking',
     user: null,
     errorMessage: null
 }
