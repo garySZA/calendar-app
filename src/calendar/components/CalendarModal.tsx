@@ -7,8 +7,9 @@ import Swal from 'sweetalert2';
 
 import 'react-datepicker/dist/react-datepicker.css';
 import { useCalendarStore, useUiStore } from '../../hooks';
+import { config } from '../../config';
 
-registerLocale( 'es', es )
+registerLocale( 'es', es );
 
 const customStyles = {
     content: {
@@ -21,7 +22,10 @@ const customStyles = {
     },
 };  
 
-Modal.setAppElement('#root');
+if( config.app_mode !== 'testing' ){
+    Modal.setAppElement('#root');
+}
+
 
 export const CalendarModal = () => {
     const { isDateModalOpen, closeDateModal } = useUiStore();

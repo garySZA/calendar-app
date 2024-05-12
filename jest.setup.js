@@ -14,7 +14,8 @@ require('dotenv').config({
 
 // Realizar el mock completo de las variables de entorno
 jest.mock('./src/config/variables', () => ({
-    config: { 
+    config: {
+        app_mode: process.env.VITE_MODE, 
         api: {
             api_url: process.env.VITE_API_URL
         }
